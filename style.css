@@ -109,3 +109,40 @@ li {
 .btn-descarga:hover {
     background-color: #2c3e50;
 }
+
+/* --- REGLAS PARA CUANDO SE GENERA EL PDF --- */
+/* --- REGLAS PARA CUANDO SE GENERA EL PDF --- */
+@media print {
+    /* Esto configura la hoja en tamaño A4 y le dice al navegador que saque sus márgenes por defecto */
+    @page {
+        size: A4;
+        margin: 1.5cm; /* Margen elegante para el CV */
+    }
+
+    .ocultar-en-impresion {
+        display: none !important;
+    }
+    
+    body {
+        background-color: #ffffff;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .container {
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+    }
+    
+    /* Dejamos que las secciones se corten entre páginas... */
+    .seccion {
+        page-break-inside: auto; 
+    }
+    
+    /* ...pero evitamos que un trabajo o proyecto específico quede cortado a la mitad */
+    .item {
+        page-break-inside: avoid; 
+        break-inside: avoid;
+    }
+}
